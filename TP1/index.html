@@ -1,3 +1,61 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    body{
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 24px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.4;
+    }
+
+    .viz{
+      margin-bottom: 36px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .viz h2{
+      font-size: 1.2rem;
+      margin: 0 0 12px 0;
+    }
+
+    /* Imágenes responsivas más chicas */
+    .viz img{
+      width: 100%;
+      max-width: 800px;   /* <— ajustá este número a gusto */
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Contenedor para iframes */
+    .embed{
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .embed iframe{
+      width: 100%;
+      height: 520px;      /* <— bajalo/subilo según el gráfico */
+      border: 0;
+    }
+
+    .caption{
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+
 <section class="viz">
   <h2>¿Cuánto aumentó OSDE en comparación con el IPC mes a mes?</h2>
   
