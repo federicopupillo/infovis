@@ -11,29 +11,28 @@
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             margin: 0;
             padding: 20px;
-            /* Aumento el ancho máximo para dar más espacio a las visualizaciones */
             max-width: 960px; 
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.6; /* Un poco más de interlineado para mejor lectura */
+            line-height: 1.6; 
             color: #333;
             background-color: #f9f9f9;
         }
 
         h1 {
             text-align: center;
-            color: #1a4f78; /* Color institucional o de proyecto */
+            color: #1a4f78; 
             margin-bottom: 40px;
         }
 
         /* --- ESTILOS PARA CADA SECCIÓN DE VISUALIZACIÓN --- */
         .viz {
-            margin-bottom: 60px; /* Más espacio entre gráficos */
+            margin-bottom: 60px; 
             padding: 30px;
             border: 1px solid #ddd;
-            border-radius: 8px; /* Bordes suaves */
-            background-color: #ffffff; /* Fondo blanco para las secciones */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+            border-radius: 8px; 
+            background-color: #ffffff; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
         }
 
         .viz h2 {
@@ -44,7 +43,7 @@
             margin: 0 0 25px 0;
         }
         
-        .viz h3 { /* Para subtítulos dentro de la sección */
+        .viz h3 { 
             font-size: 1.4rem;
             color: #555;
             margin: 0 0 20px 0;
@@ -53,59 +52,31 @@
         /* --- ESTILOS PARA IMÁGENES (SVG) --- */
         .viz img {
             width: 100%;
-            max-width: 100%; /* Las imágenes ocupan todo el ancho del contenedor .viz */
+            max-width: 100%;
             height: auto;
             display: block;
             margin: 15px auto;
-            border: 1px solid #eee; /* Borde sutil para las imágenes */
+            border: 1px solid #eee; 
             border-radius: 4px;
         }
 
-        /* --- ESTILOS PARA CONTENEDORES DE EMBED (iframes, Tableau, Flourish, Datawrapper) --- */
+        /* --- ESTILOS PARA CONTENEDORES EMBED --- */
         
-        /* Contenedor responsivo para iframes y elementos embedidos */
-        .embed-container {
-            position: relative;
-            width: 100%;
-            /* Proporción 16:9 - 9 / 16 * 100 = 56.25% */
-            /* Puedes ajustar este padding-top para cambiar la altura: 
-               Por ejemplo, 65% para un gráfico más alto, 50% para uno más apaisado. */
-            padding-top: 56.25%; 
-            height: 0;
-            overflow: hidden;
-            margin: 0 auto 15px auto;
-        }
-
-        /* Estilo general para todos los iframes para que sean responsivos */
-        .embed-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        /* Contenedor general para elementos como Flourish o Datawrapper que gestionan su propia altura */
+        .flourish-embed,
+        .tableauPlaceholder,
+        iframe[id^="datawrapper-chart-"] { /* Estilo específico para iframe de DW */
             width: 100% !important;
-            height: 100% !important;
-            border: 0;
-            min-height: 400px; /* Altura mínima para asegurar visibilidad */
+            max-width: 900px; /* Limita el ancho del gráfico */
+            margin: 20px auto;
+            display: block; /* Asegura centrado */
         }
         
-        /* Ajuste específico para Datawrapper - usa el contenedor anterior, pero el script de DW lo maneja */
-        iframe[id^="datawrapper-chart-"] {
-             position: static !important; /* Datawrapper maneja su propia altura */
-             height: auto !important;
-             margin: 20px 0;
-        }
-
-
-        /* Ajuste específico para el contenedor de Tableau */
+        /* Estilos de Tableau */
         .tableauPlaceholder {
-            margin: 0 auto;
-            max-width: 900px; /* Limita el ancho del gráfico de Tableau si lo deseas */
+            max-width: 900px; 
         }
 
-        /* Ajuste específico para Flourish */
-        .flourish-embed {
-            margin: 20px 0;
-        }
-        
         /* --- ESTILOS DE CAPTION --- */
         .caption {
             font-size: 0.95rem;
@@ -127,7 +98,7 @@
             <h2>1. Evolución Mensual: OSDE vs. IPC</h2>
             <p>Análisis del aumento porcentual mes a mes para la prepaga OSDE en comparación con el Índice de Precios al Consumidor (IPC).</p>
             
-            <div class='tableauPlaceholder' id='viz1764975524978' style='position: relative; margin: 0 auto; max-width: 900px;'>
+            <div class='tableauPlaceholder' id='viz1764975524978' style='position: relative;'>
                 <noscript>
                     <a href='#'><img alt='Evolución OSDE vs IPC ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TP&#47;TP1Tableau_17649755034790&#47;Hoja3&#47;1_rss.png' style='border: none' /></a>
                 </noscript>
@@ -151,7 +122,7 @@
             <script type='text/javascript'>
                 var divElement = document.getElementById('viz1764975524978');
                 var vizElement = divElement.getElementsByTagName('object')[0];
-                vizElement.style.width='100%';vizElement.style.height='550px'; /* Altura fija recomendada para Tableau */
+                vizElement.style.width='100%';vizElement.style.height='550px'; 
                 var scriptElement = document.createElement('script');
                 scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
                 vizElement.parentNode.insertBefore(scriptElement, vizElement);
@@ -185,22 +156,22 @@
             <h2>4. Crecimiento Total: OSDE sobre IPC (Datawrapper)</h2>
             <p>Representación concisa del crecimiento total del costo de OSDE en relación con el IPC, utilizando un gráfico de barras de bala (Bullet Bar).</p>
 
-            <div class="embed-container">
-                <iframe title="Cuanto creció el costo de OSDE sobre el IPC" aria-label="Bullet Bars" id="datawrapper-chart-eio6G" 
-                        src="https://datawrapper.dwcdn.net/eio6G/1/" 
-                        scrolling="no" 
-                        frameborder="0" 
-                        style="width: 0; min-width: 100% !important; border: none;" 
-                        height="651" 
-                        data-external="1">
-                </iframe>
-                <iframe title="Cuanto creció el costo de OSDE sobre el IPC" aria-label="Bullet Bars" id="datawrapper-chart-eio6G" src="https://datawrapper.dwcdn.net/eio6G/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="651" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
-                </div>
+            <iframe title="Cuanto creció el costo de OSDE sobre el IPC" aria-label="Bullet Bars" id="datawrapper-chart-eio6G" 
+                    src="https://datawrapper.dwcdn.net/eio6G/1/" 
+                    scrolling="no" 
+                    frameborder="0" 
+                    style="width: 0; min-width: 100% !important; border: none;" 
+                    height="651" 
+                    data-external="1">
+            </iframe>
+            <script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+            
             <p class="caption">Gráfico de bala (Bullet Bar) que resume la diferencia de crecimiento.</p>
         </section>
 
         <section class="viz">
             <h2>5. Variaciones Raw: IPC y OSDE</h2>
+         
             <p>Visualizaciones estáticas (SVG) de las variaciones individuales de la serie IPC y la serie OSDE.</p>
             
             <h3>Variación Raw IPC</h3>
