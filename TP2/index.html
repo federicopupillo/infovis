@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Análisis Comparativo OSDE vs. IPC (Trabajo Práctico Data Science)</title>
+
+    <style>
+        /* --- ESTILOS GENERALES Y LAYOUT --- */
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 20px;
+            /* Aumento el ancho máximo para dar más espacio a las visualizaciones */
+            max-width: 960px; 
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6; /* Un poco más de interlineado para mejor lectura */
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a4f78; /* Color institucional o de proyecto */
+            margin-bottom: 40px;
+        }
+
+        /* --- ESTILOS PARA CADA SECCIÓN DE VISUALIZACIÓN --- */
+        .viz {
+            margin-bottom: 60px; /* Más espacio entre gráficos */
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px; /* Bordes suaves */
+            background-color: #ffffff; /* Fondo blanco para las secciones */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+        }
+
+        .viz h2 {
+            font-size: 1.8rem;
+            color: #333;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin: 0 0 25px 0;
+        }
+        
+        .viz h3 { /* Para subtítulos dentro de la sección */
+            font-size: 1.4rem;
+            color: #555;
+            margin: 0 0 20px 0;
+        }
+
+        /* --- ESTILOS PARA IMÁGENES (SVG) --- */
+        .viz img {
+            width: 100%;
+            max-width: 100%; /* Las imágenes ocupan todo el ancho del contenedor .viz */
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border: 1px solid #eee; /* Borde sutil para las imágenes */
+            border-radius: 4px;
+        }
+
+        /* --- ESTILOS PARA CONTENEDORES DE EMBED (iframes, Tableau, Flourish, Datawrapper) --- */
+        
+        /* Contenedor responsivo para iframes y elementos embedidos */
+        .embed-container {
+            position: relative;
+            width: 100%;
+            /* Proporción 16:9 - 9 / 16 * 100 = 56.25% */
+            /* Puedes ajustar este padding-top para cambiar la altura: 
+               Por ejemplo, 65% para un gráfico más alto, 50% para uno más apaisado. */
+            padding-top: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            margin: 0 auto 15px auto;
+        }
+
+        /* Estilo general para todos los iframes para que sean responsivos */
+        .embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+            border: 0;
+            min-height: 400px; /* Altura mínima para asegurar visibilidad */
+        }
+        
+        /* Ajuste específico para Datawrapper - usa el contenedor anterior, pero el script de DW lo maneja */
+        iframe[id^="datawrapper-chart-"] {
+             position: static !important; /* Datawrapper maneja su propia altura */
+             height: auto !important;
+             margin: 20px 0;
+        }
+
+
+        /* Ajuste específico para el contenedor de Tableau */
+        .tableauPlaceholder {
+            margin: 0 auto;
+            max-width: 900px; /* Limita el ancho del gráfico de Tableau si lo deseas */
+        }
+
+        /* Ajuste específico para Flourish */
+        .flourish-embed {
+            margin: 20px 0;
+        }
+        
+        /* --- ESTILOS DE CAPTION --- */
+        .caption {
+            font-size: 0.95rem;
+            color: #777;
+            margin-top: 10px;
+            text-align: center;
+            font-style: italic;
+            padding: 5px;
+            border-top: 1px dashed #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>📈 Comparativa de Aumentos: OSDE vs. IPC 📉</h1>
+    <main>
+
+        <section class="viz">
+            <h2>1. Evolución Mensual: OSDE vs. IPC</h2>
+            <p>Análisis del aumento porcentual mes a mes para la prepaga OSDE en comparación con el Índice de Precios al Consumidor (IPC).</p>
+            
+            <div class='tableauPlaceholder' id='viz1764975524978' style='position: relative; margin: 0 auto; max-width: 900px;'>
+                <noscript>
+                    <a href='#'><img alt='Evolución OSDE vs IPC ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TP&#47;TP1Tableau_17649755034790&#47;Hoja3&#47;1_rss.png' style='border: none' /></a>
+                </noscript>
+                <object class='tableauViz' style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                    <param name='embed_code_version' value='3' />
+                    <param name='site_root' value='' />
+                    <param name='name' value='TP1Tableau_17649755034790&#47;Hoja3' />
+                    <param name='tabs' value='no' />
+                    <param name='toolbar' value='yes' />
+                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TP&#47;TP1Tableau_17649755034790&#47;Hoja3&#47;1.png' />
+                    <param name='animate_transition' value='yes' />
+                    <param name='display_static_image' value='yes' />
+                    <param name='display_spinner' value='yes' />
+                    <param name='display_overlay' value='yes' />
+                    <param name='display_count' value='yes' />
+                    <param name='language' value='en-US' />
+                    <param name='filter' value='publish=yes' />
+                </object>
+            </div>
+            <script type='text/javascript'>
+                var divElement = document.getElementById('viz1764975524978');
+                var vizElement = divElement.getElementsByTagName('object')[0];
+                vizElement.style.width='100%';vizElement.style.height='550px'; /* Altura fija recomendada para Tableau */
+                var scriptElement = document.createElement('script');
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            </script>
+            <p class="caption">Gráfico interactivo: Comparación de aumentos porcentuales mensuales.</p>
+        </section>
+
+        <section class="viz">
+            <h2>2. Comparación Acumulada OSDE vs IPC</h2>
+            <p>Visualización de jerarquía que muestra la magnitud relativa del aumento acumulado de OSDE frente al IPC en el periodo analizado.</p>
+
+            <div class="flourish-embed flourish-hierarchy" data-src="visualisation/26740335">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+                <noscript><img src="https://public.flourish.studio/visualisation/26740335/thumbnail" width="100%" alt="hierarchy visualization" /></noscript>
+            </div>
+            <p class="caption">Visualización de la diferencia acumulada mediante un gráfico de jerarquía.</p>
+        </section>
+
+        <section class="viz">
+            <h2>3. Series Temporales: IPC y OSDE</h2>
+            <p>Evolución en el tiempo de las series de datos de IPC y OSDE, destacando las tendencias a largo plazo.</p>
+
+            <div class="flourish-embed flourish-chart" data-src="visualisation/26763890">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+                <noscript><img src="https://public.flourish.studio/visualisation/26763890/thumbnail" width="100%" alt="chart visualization" /></noscript>
+            </div>
+            <p class="caption">Gráfico de líneas con la serie temporal de ambos indicadores.</p>
+        </section>
+
+        <section class="viz">
+            <h2>4. Crecimiento Total: OSDE sobre IPC (Datawrapper)</h2>
+            <p>Representación concisa del crecimiento total del costo de OSDE en relación con el IPC, utilizando un gráfico de barras de bala (Bullet Bar).</p>
+
+            <div class="embed-container">
+                <iframe title="Cuanto creció el costo de OSDE sobre el IPC" aria-label="Bullet Bars" id="datawrapper-chart-eio6G" 
+                        src="https://datawrapper.dwcdn.net/eio6G/1/" 
+                        scrolling="no" 
+                        frameborder="0" 
+                        style="width: 0; min-width: 100% !important; border: none;" 
+                        height="651" 
+                        data-external="1">
+                </iframe>
+                <script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+            </div>
+            <p class="caption">Gráfico de bala (Bullet Bar) que resume la diferencia de crecimiento.</p>
+        </section>
+
+        <section class="viz">
+            <h2>5. Variaciones Raw: IPC y OSDE</h2>
+            <p>Visualizaciones estáticas (SVG) de las variaciones individuales de la serie IPC y la serie OSDE.</p>
+            
+            <h3>Variación Raw IPC</h3>
+            <img src="https://federicopupillo.github.io/infovis/TP1/TP1_raw varIPC.svg" alt="Gráfico de variación raw del IPC">
+            <p class="caption">Variación Raw del IPC.</p>
+
+            <h3>Variación Raw OSDE</h3>
+            <img src="https://federicopupillo.github.io/infovis/TP1/TP1_raw varOS.svg" alt="Gráfico de variación raw de OSDE">
+            <p class="caption">Variación Raw de OSDE.</p>
+        </section>
+
+    </main>
+</body>
+</html>
